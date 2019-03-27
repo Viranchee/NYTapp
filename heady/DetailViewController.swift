@@ -9,34 +9,21 @@
 import UIKit
 
 class DetailViewController: UITableViewController {
-    var topics: NYTJson!
-    
-    override func loadView() {
-        print("hello")
-        
-
-        //        tableView.reloadData()
-    }
-    override func viewDidLoad() {
-        print("2")
-
-
-
-    }
+    var topics =  [Results]()
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return topics.num_results
+        return topics.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = topics.results[indexPath.row].title
+        cell.textLabel?.text = topics[indexPath.row].title
         return cell
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let vc = storyboard?.instantiateViewController(withIdentifier: "webview") as? WebView {
-            let urlString = topics.results[indexPath.row].url
+            let urlString = topics[indexPath.row].url
             vc.website = URL(string: urlString)!
             navigationController?.pushViewController(vc, animated: true)
         }

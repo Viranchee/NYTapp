@@ -40,7 +40,8 @@ class SectionsViewController: UITableViewController {
         
             let jsonDecoder = JSONDecoder()
             let topics = try? jsonDecoder.decode(NYTJson.self, from: data)
-            vc.topics = topics
+            guard let resultsArray = topics?.results else { return }
+            vc.topics = resultsArray
             print(#file)
             navigationController?.pushViewController(vc, animated: true)
 

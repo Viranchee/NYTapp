@@ -13,119 +13,45 @@
 
 import Foundation
 struct NYTJson {
-    let status : String
-    let copyright : String
-    let section : String
-    let last_updated : String
+    let status : String?
+    let copyright : String?
+    let section : String?
+    let last_updated : String?
     let num_results : Int
     let results : [Results]
-//
-//    init(status : String,
-//         copyright : String,
-//         section : String,
-//         last_updated : String,
-//         num_results : Int,
-//         results : [Results]) {
-//
-//        self.status = status
-//        self.copyright = copyright
-//        self.section = section
-//        self.last_updated = last_updated
-//        self.num_results = num_results
-//        self.results = results
-//    }
 }
 extension NYTJson: Codable {}
 
 struct Results {
     let section : String
-    let subsection : String
+    let subsection : String?
     let title : String
-    let abstract : String
+    let abstract : String?
     let url : String
-    let byline : String
-    let item_type : String
-    let updated_date : String
-    let created_date : String
-    let published_date : String
-    let material_type_facet : String
-    let kicker : String
-    let des_facet : [String]
-    let org_facet : [String]
-    let per_facet : [String]
-    let geo_facet : [String]
-    let multimedia : [String]
-    let short_url : String
-
-//    init(section : String,
-//         subsection : String,
-//         title : String,
-//         abstract : String,
-//         url : String,
-//         byline : String,
-//         item_type : String,
-//         updated_date : String,
-//         created_date : String,
-//         published_date : String,
-//         material_type_facet : String,
-//         kicker : String,
-//         des_facet : [String],
-//         org_facet : [String],
-//         per_facet : [String],
-//         geo_facet : [String],
-//         multimedia : [String],
-//         short_url : String ) {
-//
-//        self.section = section
-//        self.subsection = subsection
-//        self.title = title
-//        self.abstract = abstract
-//        self.url = url
-//        self.byline = byline
-//        self.item_type = item_type
-//        self.updated_date = updated_date
-//        self.created_date = created_date
-//        self.published_date = published_date
-//        self.material_type_facet = material_type_facet
-//        self.kicker = kicker
-//        self.des_facet = des_facet
-//        self.org_facet = org_facet
-//        self.per_facet = per_facet
-//        self.geo_facet = geo_facet
-//        self.multimedia = multimedia
-//        self.short_url = short_url
-//    }
+    let byline : String?
+    let item_type : String?
+    let updated_date : String?
+    let created_date : String?
+    let published_date : String?
+    let material_type_facet : String?
+    let kicker : String?
+    let des_facet : [String]?
+    let org_facet : [String]?
+    let per_facet : [String]?
+    let geo_facet : [String]?
+    let multimedia : [Multimedia]
+    let short_url : String?
 }
 extension Results: Codable {}
-struct Multimedia {
-    let url : String
-    let format : String
-    let height : Int
-    let width : Int
-    let type : String
-    let subtype : String
-    let caption : String
-    let copyright : String
 
-//    init(
-//        url : String,
-//        format : String,
-//        height : Int,
-//        width : Int,
-//        type : String,
-//        subtype : String,
-//        caption : String,
-//        copyright : String
-//
-//        ) {
-//        self.url = url
-//        self.format = format
-//        self.height = height
-//        self.width = width
-//        self.type = type
-//        self.subtype = subtype
-//        self.caption = caption
-//        self.copyright = copyright
-//    }
+struct Multimedia {
+    let url : String?
+    let format : String?
+    let height : Int?
+    let width : Int?
+    let type : String?
+    let subtype : String?
+    let caption : String?
+    let copyright : String?
 }
 extension Multimedia: Codable {}
